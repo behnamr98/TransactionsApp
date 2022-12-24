@@ -23,23 +23,21 @@ class TransactionsViewModelImpl: TransactionsViewModel {
     let transactionsUseCase: GetTransactionsUseCase
     var transactionsSubject = BehaviorRelay<[Transaction]>.init(value: [])
     var transactions: Observable<[Transaction]> { transactionsSubject.asObservable() }
-    
-    
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     init(transactionsUseCase: GetTransactionsUseCase) {
         self.transactionsUseCase = transactionsUseCase
-        
-        
-        self.transactionsSubject.subscribe(onNext: { transactions in
-            print("Transactions Emit Event:", transactions.count)
-        })
-        .disposed(by: disposeBag)
     }
     
     func fetchTransactions() {
-        let transactions = transactionsUseCase.execute()
-        transactionsSubject.accept(transactions)
+        Task {
+            do {
+                let transactions = try await transactionsUseCase.execute()
+                transactionsSubject.accept(transactions)
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }

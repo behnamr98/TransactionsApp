@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetTransactionsUseCase {
-    func execute() -> [Transaction]
+    func execute() async throws ->  [Transaction]
 }

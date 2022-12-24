@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let useCase: GetTransactionsUseCase = GetTransactions()
+        let repository = MockTransactionRepository()
+        let useCase: GetTransactionsUseCase = GetTransactions(repository: repository)
         let viewModel: TransactionsViewModel = TransactionsViewModelImpl(transactionsUseCase: useCase)
         let rootVC = TransactionsViewController(viewModel)
         let navigationVC = UINavigationController(rootViewController: rootVC)

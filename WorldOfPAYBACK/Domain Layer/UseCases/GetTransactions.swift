@@ -8,14 +8,15 @@
 import Foundation
 
 struct GetTransactions: GetTransactionsUseCase {
-    func execute() -> [Transaction] {
-        let transactions = [
-        Transaction(name: "Trans 01"),
-        Transaction(name: "Trans 02"),
-        Transaction(name: "Trans 03"),
-        Transaction(name: "Trans 04"),
-        Transaction(name: "Trans 05"),
-        Transaction(name: "Trans 06")]
-        return transactions
+    
+    let repository: TransactionRepositoryProtocol
+    
+    init(repository: TransactionRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func execute() async throws ->  [Transaction] {
+        let transactions = try await repository.fetchTransactions()
+        return transactions.map { $0.toDomain() }
     }
 }

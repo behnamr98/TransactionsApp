@@ -67,7 +67,7 @@ class TransactionsViewController: UIViewController {
         viewModel.transactions.bind(to: collectionView.rx.items) { collectionView, row, element in
             let indexPath = IndexPath(row: row, section: 0)
             let cell = collectionView.dequeueReusableCell(withClass: TransactionCell.self, for: indexPath)
-            cell.item = element.name
+            cell.item = element
             return cell
         }.disposed(by: disposeBag)
     }

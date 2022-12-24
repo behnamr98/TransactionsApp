@@ -8,5 +8,14 @@
 import Foundation
 
 struct Transaction: Codable {
-    let name: String
+    let partnerDisplayName: String
+    let category: Int
+    let transactionDetail: Details
+    
+    struct Details: Codable {
+        let description: String?
+        let bookingDate: String
+        let amount: Int
+        let currency: String
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		030D041D29474AD400099739 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041C29474AD400099739 /* UIColor.swift */; };
+		030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */; };
 		03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CE02934E4A6007ED1FA /* AppDelegate.swift */; };
 		03A05CE52934E4A6007ED1FA /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CE42934E4A6007ED1FA /* TransactionsViewController.swift */; };
 		03A05CEA2934E4A8007ED1FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A05CE92934E4A8007ED1FA /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		030D041C29474AD400099739 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
 		03A05CDD2934E4A6007ED1FA /* WorldOfPAYBACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPAYBACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A05CE02934E4A6007ED1FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03A05CE42934E4A6007ED1FA /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 		03DDD7B0293B731A009DA8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */,
 				03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */,
 				03A05D1E2934EDE0007ED1FA /* TransactionsViewModel.swift in Sources */,
+				030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */,
 				03DDD7AE293B72EE009DA8D3 /* TransactionRepository.swift in Sources */,
 				030D041D29474AD400099739 /* UIColor.swift in Sources */,
 				03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */,

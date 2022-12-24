@@ -17,9 +17,9 @@ class TransactionCell: UICollectionViewCell {
         return label
     }()
     
-    var item: String? {
+    var item: Transaction? {
         didSet {
-            nameLabel.text = item
+            nameLabel.text = item?.partnerDisplayName
         }
     }
     
