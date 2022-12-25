@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		030D041D29474AD400099739 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041C29474AD400099739 /* UIColor.swift */; };
 		030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */; };
+		033F9C3E2958D171006A4399 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 033F9C3D2958D171006A4399 /* README.md */; };
 		034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F129581BF9008B43E0 /* DateFormmater.swift */; };
 		034243F429582217008B43E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F329582217008B43E0 /* String.swift */; };
 		034243F62958226B008B43E0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F52958226B008B43E0 /* Date.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		030D041C29474AD400099739 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
+		033F9C3D2958D171006A4399 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WorldOfPAYBACK/README.md; sourceTree = "<group>"; };
 		034243F129581BF9008B43E0 /* DateFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormmater.swift; sourceTree = "<group>"; };
 		034243F329582217008B43E0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		034243F52958226B008B43E0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		03A05CD42934E4A6007ED1FA = {
 			isa = PBXGroup;
 			children = (
+				033F9C3D2958D171006A4399 /* README.md */,
 				03A05CDF2934E4A6007ED1FA /* WorldOfPAYBACK */,
 				03A05CF62934E4A8007ED1FA /* WorldOfPAYBACKTests */,
 				03A05D002934E4A8007ED1FA /* WorldOfPAYBACKUITests */,
@@ -470,6 +473,7 @@
 			files = (
 				03A05CED2934E4A8007ED1FA /* LaunchScreen.storyboard in Resources */,
 				03C7E711293DBA8A00E93E1C /* PBTransactions.json in Resources */,
+				033F9C3E2958D171006A4399 /* README.md in Resources */,
 				03A05CEA2934E4A8007ED1FA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
