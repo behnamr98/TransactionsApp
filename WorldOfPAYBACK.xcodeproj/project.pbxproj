@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		030D041D29474AD400099739 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041C29474AD400099739 /* UIColor.swift */; };
 		030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */; };
+		034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F129581BF9008B43E0 /* DateFormmater.swift */; };
+		034243F429582217008B43E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F329582217008B43E0 /* String.swift */; };
+		034243F62958226B008B43E0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F52958226B008B43E0 /* Date.swift */; };
 		03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CE02934E4A6007ED1FA /* AppDelegate.swift */; };
 		03A05CE52934E4A6007ED1FA /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CE42934E4A6007ED1FA /* TransactionsViewController.swift */; };
 		03A05CEA2934E4A8007ED1FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A05CE92934E4A8007ED1FA /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* Begin PBXFileReference section */
 		030D041C29474AD400099739 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
+		034243F129581BF9008B43E0 /* DateFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormmater.swift; sourceTree = "<group>"; };
+		034243F329582217008B43E0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		034243F52958226B008B43E0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		03A05CDD2934E4A6007ED1FA /* WorldOfPAYBACK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPAYBACK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A05CE02934E4A6007ED1FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03A05CE42934E4A6007ED1FA /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		034243F029581BEE008B43E0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				034243F129581BF9008B43E0 /* DateFormmater.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		03A05CD42934E4A6007ED1FA = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +257,7 @@
 		03A05D212934F12B007ED1FA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				034243F029581BEE008B43E0 /* Common */,
 				03DDD7A2293B6108009DA8D3 /* Extensions */,
 			);
 			path = Utilities;
@@ -278,6 +293,8 @@
 				03DDD7A3293B6153009DA8D3 /* UICollectionView+EX.swift */,
 				03DDD7BA293B7F28009DA8D3 /* ReusableView.swift */,
 				030D041C29474AD400099739 /* UIColor.swift */,
+				034243F329582217008B43E0 /* String.swift */,
+				034243F52958226B008B43E0 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,8 +498,10 @@
 				03A05CE52934E4A6007ED1FA /* TransactionsViewController.swift in Sources */,
 				03DDD7B6293B7786009DA8D3 /* TransactionDTOResponse.swift in Sources */,
 				03C7E714293DC00C00E93E1C /* TransactionCell.swift in Sources */,
+				034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */,
 				03DDD7B3293B735A009DA8D3 /* GetTransactionsUseCase.swift in Sources */,
 				03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */,
+				034243F62958226B008B43E0 /* Date.swift in Sources */,
 				03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */,
 				03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */,
 				03A05D1E2934EDE0007ED1FA /* TransactionsViewModel.swift in Sources */,
@@ -491,6 +510,7 @@
 				030D041D29474AD400099739 /* UIColor.swift in Sources */,
 				03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */,
 				03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */,
+				034243F429582217008B43E0 /* String.swift in Sources */,
 				03DDD7A7293B660E009DA8D3 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

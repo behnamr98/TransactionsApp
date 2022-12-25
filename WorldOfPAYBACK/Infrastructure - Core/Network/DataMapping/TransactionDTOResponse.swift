@@ -31,7 +31,7 @@ struct TransactionDTOResponse: Decodable {
             
             func toDomain() -> Transaction.Details {
                 .init(description: self.description,
-                      bookingDate: self.bookingDate,
+                      bookingDate: self.bookingDate.date,
                       amount: self.value.amount,
                       currency: self.value.currency)
             }

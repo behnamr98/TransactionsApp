@@ -16,7 +16,8 @@ struct GetTransactions: GetTransactionsUseCase {
     }
     
     func execute() async throws ->  [Transaction] {
+        sleep(2)
         let transactions = try await repository.fetchTransactions()
-        return transactions.map { $0.toDomain() }
+        return transactions.map { $0.toDomain() }.sorted(by: >)
     }
 }

@@ -14,8 +14,24 @@ struct Transaction: Codable {
     
     struct Details: Codable {
         let description: String?
-        let bookingDate: String
+        let bookingDate: Date
         let amount: Int
         let currency: String
+    }
+}
+
+extension Transaction: Comparable {
+    static func < (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.transactionDetail.bookingDate < rhs.transactionDetail.bookingDate
+    }
+    
+    static func > (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.transactionDetail.bookingDate > rhs.transactionDetail.bookingDate
+    }
+    
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.category == rhs.category &&
+        lhs.transactionDetail.amount == rhs.transactionDetail.amount &&
+        lhs.transactionDetail.bookingDate == rhs.transactionDetail.bookingDate
     }
 }
