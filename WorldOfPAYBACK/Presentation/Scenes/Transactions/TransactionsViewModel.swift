@@ -16,21 +16,21 @@ protocol TransactionsViewModelOutput {
     var transactions: Observable<[Transaction]> { get }
     var sumOfTransaction: Observable<String> { get }
     var isLoading: Observable<Bool> { get }
+    func selectedTransaction(_ indexPath: IndexPath) -> Transaction
 }
 
 protocol TransactionsViewModel: TransactionsViewModelInput, TransactionsViewModelOutput {}
 
 class TransactionsViewModelImpl: TransactionsViewModel {
     
-    var transactionsSubject = BehaviorRelay<[Transaction]>.init(value: [])
-    var sumOfTransactionsSubject = PublishSubject<String>()
-    var isLoadingSubject = PublishSubject<Bool>()
-    
     var transactions: Observable<[Transaction]> { transactionsSubject.asObservable() }
     var sumOfTransaction: Observable<String> { sumOfTransactionsSubject.asObservable() }
     var isLoading: Observable<Bool> { isLoadingSubject.asObservable() }
     
     private let transactionsUseCase: GetTransactionsUseCase
+    private var transactionsSubject = BehaviorRelay<[Transaction]>.init(value: [])
+    private var sumOfTransactionsSubject = PublishSubject<String>()
+    private var isLoadingSubject = PublishSubject<Bool>()
     private var disposeBag = DisposeBag()
     
     init(transactionsUseCase: GetTransactionsUseCase) {
@@ -58,6 +58,10 @@ class TransactionsViewModelImpl: TransactionsViewModel {
         isLoadingSubject.onNext(false)
         transactionsSubject.accept(transactions)
         sumOfTransactionsSubject.onNext("\(sum) \(currency)")
+    }
+    
+    func selectedTransaction(_ indexPath: IndexPath) -> Transaction {
+        transactionsSubject.value[indexPath.row]
     }
     
 }

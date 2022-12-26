@@ -142,13 +142,19 @@ class TransactionsViewController: UIViewController {
                 return cell
             }.disposed(by: disposeBag)
     }
+    
+    private func routeToDetails(_ transaction: Transaction) {
+        let viewModel = TransactionDetailsViewModelImpl(transaction: transaction)
+        let vc = TransactionDetailsViewController(viewModel)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: CollectionViewLayout & UICollectionViewDelegate & DataSource
 extension TransactionsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Route to Details page
+        routeToDetails(viewModel.selectedTransaction(indexPath))
     }
     
     private func makeLayout() -> UICollectionViewCompositionalLayout {

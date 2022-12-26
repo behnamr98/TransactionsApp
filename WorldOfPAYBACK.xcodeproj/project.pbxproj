@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		030D041D29474AD400099739 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041C29474AD400099739 /* UIColor.swift */; };
 		030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */; };
+		032864E029596916006CC007 /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864DF29596916006CC007 /* TransactionDetailsViewController.swift */; };
+		032864E229596928006CC007 /* TransactionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864E129596928006CC007 /* TransactionDetailsViewModel.swift */; };
 		033F9C3E2958D171006A4399 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 033F9C3D2958D171006A4399 /* README.md */; };
 		034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F129581BF9008B43E0 /* DateFormmater.swift */; };
 		034243F429582217008B43E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F329582217008B43E0 /* String.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		030D041C29474AD400099739 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
+		032864DF29596916006CC007 /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
+		032864E129596928006CC007 /* TransactionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewModel.swift; sourceTree = "<group>"; };
 		033F9C3D2958D171006A4399 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WorldOfPAYBACK/README.md; sourceTree = "<group>"; };
 		034243F129581BF9008B43E0 /* DateFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormmater.swift; sourceTree = "<group>"; };
 		034243F329582217008B43E0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -185,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				03A05D1A2934E8D6007ED1FA /* Transactions */,
-				03A05D1B2934ED92007ED1FA /* Details Transaction */,
+				03A05D1B2934ED92007ED1FA /* Transaction Details */,
 				03A05D1C2934EDA2007ED1FA /* FilterOption */,
 			);
 			path = Scenes;
@@ -227,11 +231,13 @@
 			path = Transactions;
 			sourceTree = "<group>";
 		};
-		03A05D1B2934ED92007ED1FA /* Details Transaction */ = {
+		03A05D1B2934ED92007ED1FA /* Transaction Details */ = {
 			isa = PBXGroup;
 			children = (
+				032864DF29596916006CC007 /* TransactionDetailsViewController.swift */,
+				032864E129596928006CC007 /* TransactionDetailsViewModel.swift */,
 			);
-			path = "Details Transaction";
+			path = "Transaction Details";
 			sourceTree = "<group>";
 		};
 		03A05D1C2934EDA2007ED1FA /* FilterOption */ = {
@@ -507,6 +513,7 @@
 				03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */,
 				034243F62958226B008B43E0 /* Date.swift in Sources */,
 				03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */,
+				032864E229596928006CC007 /* TransactionDetailsViewModel.swift in Sources */,
 				03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */,
 				03A05D1E2934EDE0007ED1FA /* TransactionsViewModel.swift in Sources */,
 				030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */,
@@ -515,6 +522,7 @@
 				03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */,
 				03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */,
 				034243F429582217008B43E0 /* String.swift in Sources */,
+				032864E029596916006CC007 /* TransactionDetailsViewController.swift in Sources */,
 				03DDD7A7293B660E009DA8D3 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
