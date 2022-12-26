@@ -9,11 +9,12 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        NetworkMonitor.shared.startMonitoring()
         
         let repository = MockTransactionRepository()
         let useCase: GetTransactionsUseCase = GetTransactions(repository: repository)
@@ -26,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        NetworkMonitor.shared.stopMonitoring()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        NetworkMonitor.shared.startMonitoring()
+    }
 }
 

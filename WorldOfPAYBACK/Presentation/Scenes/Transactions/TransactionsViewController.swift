@@ -15,7 +15,13 @@ class TransactionsViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.refreshControl = self.refreshControl
         return collectionView
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        return refreshControl
     }()
     
     private lazy var bottomView: UIView = {
@@ -25,22 +31,23 @@ class TransactionsViewController: UIViewController {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.2
         view.layer.shadowOffset = .zero
+        view.isHidden = true
         return view
     }()
     
     private lazy var sumTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         label.textColor = UIColor(hexCode: "#34353C")
-        label.text = "Sum"
+        label.text = "Total Amount"
         return label
     }()
     
     private lazy var sumLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.textColor = UIColor(hexCode: "#34353C")
         return label
     }()
@@ -49,6 +56,12 @@ class TransactionsViewController: UIViewController {
         let indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
+    }()
+    
+    private lazy var errorView: ErrorView = {
+        let view = ErrorView()
+        view.isHidden = true
+        return view
     }()
     
     private var disposeBag = DisposeBag()
@@ -67,6 +80,7 @@ class TransactionsViewController: UIViewController {
         super.viewDidLoad()
         configViews()
         addViews()
+        
         setupConstraints()
         binding()
         
@@ -76,7 +90,6 @@ class TransactionsViewController: UIViewController {
     private func configViews() {
         title = "Transactions"
         view.backgroundColor = .white
-        indicator.startAnimating()
         configCollectionView()
     }
 
@@ -86,6 +99,7 @@ class TransactionsViewController: UIViewController {
         view.addSubview(indicator)
         bottomView.addSubview(sumTitleLabel)
         bottomView.addSubview(sumLabel)
+        view.addSubview(errorView)
     }
     
     private func setupConstraints() {
@@ -108,6 +122,10 @@ class TransactionsViewController: UIViewController {
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
+            errorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            errorView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
             sumTitleLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 12),
             sumTitleLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
             
@@ -115,7 +133,6 @@ class TransactionsViewController: UIViewController {
             sumLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -16)
         ]
         
-        print(view.safeAreaInsets.bottom)
         NSLayoutConstraint.activate(collectionViewConstraints)
     }
     
@@ -125,13 +142,37 @@ class TransactionsViewController: UIViewController {
     }
     
     private func binding() {
+//        let networkSubscription = viewModel.networkAvailable
+//            .observe(on: MainScheduler.instance)
+//            .subscribe { status in
+//                print("Network Status:", status)
+//                self.collectionView.isHidden = !status
+//                self.errorView.model = ErrorMessageStyles.NoConnectionStyle()
+//                self.errorView.isHidden = status
+//            }
+        
         viewModel.isLoading
             .asDriver(onErrorJustReturn: false)
             .drive(indicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
+        viewModel.isLoading
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { status in
+                if !self.errorView.isHidden {
+                    self.errorView.isHidden = true
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.forcedError
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: showServerError)
+            .disposed(by: disposeBag)
+        
         viewModel.sumOfTransaction
-            .bind(to: sumLabel.rx.text)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: updateTotalValue)
             .disposed(by: disposeBag)
         
         viewModel.transactions
@@ -141,12 +182,40 @@ class TransactionsViewController: UIViewController {
                 cell.item = element
                 return cell
             }.disposed(by: disposeBag)
+        
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .subscribe(onNext: refresh)
+            .disposed(by: disposeBag)
+        
+        errorView.button.rx.tap
+            .subscribe(onNext: refresh)
+            .disposed(by: disposeBag)
+    }
+    
+    private func refresh() {
+        refreshControl.endRefreshing()
+        viewModel.fetchTransactions()
     }
     
     private func routeToDetails(_ transaction: Transaction) {
         let viewModel = TransactionDetailsViewModelImpl(transaction: transaction)
         let vc = TransactionDetailsViewController(viewModel)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func updateTotalValue(_ total: String) {
+        self.errorView.isHidden = true
+        self.collectionView.isHidden = false
+        self.bottomView.isHidden = false
+        self.sumLabel.text = total
+    }
+    
+    private func showServerError() {
+        self.errorView.model = ErrorMessageStyles.ServerErrorStyle()
+        self.errorView.isHidden = false
+        self.collectionView.isHidden = true
+        self.bottomView.isHidden = true
     }
 }
 
