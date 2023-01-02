@@ -11,6 +11,7 @@ import RxCocoa
 
 protocol TransactionsViewModelInput {
     func fetchTransactions()
+    func filterTransactions(_ categories: [Category])
 }
 protocol TransactionsViewModelOutput {
     var transactions: Observable<[Transaction]> { get }
@@ -72,5 +73,12 @@ class TransactionsViewModelImpl: TransactionsViewModel {
     
     func selectedTransaction(_ indexPath: IndexPath) -> Transaction {
         transactionsSubject.value[indexPath.row]
+    }
+    
+    func filterTransactions(_ categories: [Category]) {
+        let categoryIDs = categories.map { $0.id }
+        var transactions = transactionsSubject.value
+        let filterTransactions = transactions.filter { categoryIDs.contains($0.category) }
+        transactionsSubject.accept(filterTransactions)
     }
 }

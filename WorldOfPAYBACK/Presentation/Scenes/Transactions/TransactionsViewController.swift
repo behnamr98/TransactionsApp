@@ -66,9 +66,16 @@ class TransactionsViewController: UIViewController {
     
     private var disposeBag = DisposeBag()
     private var viewModel: TransactionsViewModel
+    private let makeDetailsTransactionViewController: (Transaction) -> TransactionDetailsViewController
+    private let makeFilterViewController: () -> FilterOptionsViewController
     
-    init(_ viewModel: TransactionsViewModel) {
+    init(_ viewModel: TransactionsViewModel,
+         _ detailsTransactionViewControllerFactory: @escaping (Transaction) -> TransactionDetailsViewController,
+         _ filterViewControllerFactory: @escaping () -> FilterOptionsViewController
+    ) {
         self.viewModel = viewModel
+        self.makeDetailsTransactionViewController = detailsTransactionViewControllerFactory
+        self.makeFilterViewController = filterViewControllerFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -91,6 +98,7 @@ class TransactionsViewController: UIViewController {
         title = "Transactions"
         view.backgroundColor = .white
         configCollectionView()
+        addFilterButton()
     }
 
     private func addViews() {
@@ -139,6 +147,14 @@ class TransactionsViewController: UIViewController {
     private func configCollectionView() {
         collectionView.register(cellWithClass: TransactionCell.self)
         collectionView.delegate = self
+    }
+    
+    private func addFilterButton() {
+        let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"),
+                                           style: .plain, target: self,
+                                           action: #selector(routeToFilterOption))
+        filterButton.tintColor = UIColor(hexCode: "#949BAA")
+        navigationItem.rightBarButtonItem = filterButton
     }
     
     private func binding() {
@@ -199,9 +215,16 @@ class TransactionsViewController: UIViewController {
     }
     
     private func routeToDetails(_ transaction: Transaction) {
-        let viewModel = TransactionDetailsViewModelImpl(transaction: transaction)
-        let vc = TransactionDetailsViewController(viewModel)
+        let detailsViewController = self.makeDetailsTransactionViewController(transaction)
+        navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
+    @objc private func routeToFilterOption() {
+        let vc = makeFilterViewController()
         navigationController?.pushViewController(vc, animated: true)
+//        viewModel.categories
+//            .subscribe(onNext: { categories in
+//            }).disposed(by: disposeBag)
     }
     
     private func updateTotalValue(_ total: String) {
