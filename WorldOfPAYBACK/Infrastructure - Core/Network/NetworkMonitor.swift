@@ -23,7 +23,7 @@ final class NetworkMonitor {
 
     func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
-            let isConnected = path.status != .unsatisfied
+            let isConnected = path.status == .satisfied
             self?.connectionStatus.accept(isConnected)
         }
         monitor.start(queue: queue)
