@@ -8,5 +8,6 @@
 import Foundation
 
 protocol TransactionRepositoryProtocol {
-    func fetchTransactions() async throws -> [TransactionDTOResponse.TransactionDTO]
+    func fetchTransactions() async throws -> [Transaction]
+    func fetchCategories() -> [Category]
 }
