@@ -11,9 +11,12 @@ struct GetTransactions: GetTransactionsUseCase {
     
     let repository: TransactionRepositoryProtocol
     
-    func execute() async throws ->  [Transaction] {
+    func fetch() async throws {
         sleep(2)
-        let transactions = try await repository.fetchTransactions()
-        return transactions.map { $0 }.sorted(by: >)
+        try await repository.fetchTransactions()
+    }
+    
+    func getTransactions() ->  [Transaction] {
+        return repository.getFilterTransactions().map { $0 }.sorted(by: >)
     }
 }

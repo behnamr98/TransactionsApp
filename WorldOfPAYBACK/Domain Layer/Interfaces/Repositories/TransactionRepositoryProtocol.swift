@@ -8,6 +8,9 @@
 import Foundation
 
 protocol TransactionRepositoryProtocol {
-    func fetchTransactions() async throws -> [Transaction]
+    func fetchTransactions() async throws
+    func getFilterTransactions() -> [Transaction]
+    func updateSelected(categories: [Category])
     func fetchCategories() -> [Category]
+    
 }
