@@ -11,7 +11,7 @@ struct GetCategories: GetCategoriesUseCase {
     
     let repository: TransactionRepositoryProtocol
     
-    func execute() async throws -> [Category] {
-        return repository.fetchCategories().map { Category(id: $0.id) }
+    func execute() -> [Category] {
+        return repository.fetchCategories()
     }
 }

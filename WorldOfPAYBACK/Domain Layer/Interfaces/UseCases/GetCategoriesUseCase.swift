@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GetCategoriesUseCase {
-    func execute() async throws -> [Category]
+    func execute() -> [Category]
 }
