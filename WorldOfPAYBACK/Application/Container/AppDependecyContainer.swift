@@ -12,6 +12,10 @@ class AppDependencyContainer {
     
     // MARK: - Properties
     let sharedTransactionsRepository: TransactionRepositoryProtocol
+    lazy var sharedFilterViewModel: FilterOptionsViewModel = {
+        let useCase = GetCategories(repository: self.sharedTransactionsRepository)
+        return FilterOptionsViewModelImpl(useCase: useCase)
+    }()
     
     // MARK: - Methods
     public init() {
@@ -32,9 +36,14 @@ class AppDependencyContainer {
             return self.makeFilterViewController()
         }
         
+        let filterOptionsViewModelResolver = {
+            return self.sharedFilterViewModel
+        }
+        
         let getTransactions = GetTransactions(repository: self.sharedTransactionsRepository)
-        let viewModel = TransactionsViewModelImpl(transactionsUseCase: getTransactions)
-        let rootVC = TransactionsViewController(viewModel, detailsViewControllerFactory, filterViewControllerFactory)
+        let updateCategories = UpdateSelectedCategories(repository: self.sharedTransactionsRepository)
+        let viewModel = TransactionsViewModelImpl(transactionsUseCase: getTransactions, updateCategories: updateCategories)
+        let rootVC = TransactionsViewController(viewModel, detailsViewControllerFactory, filterViewControllerFactory, filterOptionsViewModelResolver)
         return UINavigationController(rootViewController: rootVC)
     }
     
@@ -45,10 +54,10 @@ class AppDependencyContainer {
     }
     
     // Filter Options View Controller
-    func makeFilterViewController() -> FilterOptionsViewController {
-        let useCase = GetCategories(repository: self.sharedTransactionsRepository)
-        let viewModel = FilterOptionsViewModelImpl(useCase: useCase)
-        return FilterOptionsViewController(viewModel)
+    func makeFilterViewController() -> UINavigationController {
+        let viewModel = self.sharedFilterViewModel
+        let viewController = FilterOptionsViewController(viewModel)
+        return UINavigationController(rootViewController: viewController)
     }
     
 }
