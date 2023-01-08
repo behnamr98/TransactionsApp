@@ -15,6 +15,7 @@
 		032864E829598837006CC007 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864E729598837006CC007 /* ErrorView.swift */; };
 		0328650B2959CA6F006CC007 /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328650A2959CA6F006CC007 /* FilterOptionsViewController.swift */; };
 		0328650D2959CA79006CC007 /* FilterOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328650C2959CA79006CC007 /* FilterOptionsViewModel.swift */; };
+		0336CFC0296311570009E61F /* FilterOptionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336CFBF296311570009E61F /* FilterOptionsModels.swift */; };
 		033F9C3E2958D171006A4399 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 033F9C3D2958D171006A4399 /* README.md */; };
 		034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F129581BF9008B43E0 /* DateFormmater.swift */; };
 		034243F429582217008B43E0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034243F329582217008B43E0 /* String.swift */; };
@@ -44,6 +45,8 @@
 		03DDD7B6293B7786009DA8D3 /* TransactionDTOResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7B5293B7786009DA8D3 /* TransactionDTOResponse.swift */; };
 		03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7B7293B7798009DA8D3 /* TransactionDTORequest.swift */; };
 		03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7BA293B7F28009DA8D3 /* ReusableView.swift */; };
+		03FD5022296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD5021296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift */; };
+		03FD5024296AD808000F7E7D /* UpdateSelectedCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD5023296AD808000F7E7D /* UpdateSelectedCategories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,7 @@
 		032864E729598837006CC007 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		0328650A2959CA6F006CC007 /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewController.swift; sourceTree = "<group>"; };
 		0328650C2959CA79006CC007 /* FilterOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewModel.swift; sourceTree = "<group>"; };
+		0336CFBF296311570009E61F /* FilterOptionsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsModels.swift; sourceTree = "<group>"; };
 		033F9C3D2958D171006A4399 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = WorldOfPAYBACK/README.md; sourceTree = "<group>"; };
 		034243F129581BF9008B43E0 /* DateFormmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormmater.swift; sourceTree = "<group>"; };
 		034243F329582217008B43E0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		03DDD7B5293B7786009DA8D3 /* TransactionDTOResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTOResponse.swift; sourceTree = "<group>"; };
 		03DDD7B7293B7798009DA8D3 /* TransactionDTORequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTORequest.swift; sourceTree = "<group>"; };
 		03DDD7BA293B7F28009DA8D3 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		03FD5021296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSelectedCategoriesUseCase.swift; sourceTree = "<group>"; };
+		03FD5023296AD808000F7E7D /* UpdateSelectedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSelectedCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +287,7 @@
 				038ED19229601809009629A7 /* Cell */,
 				0328650A2959CA6F006CC007 /* FilterOptionsViewController.swift */,
 				0328650C2959CA79006CC007 /* FilterOptionsViewModel.swift */,
+				0336CFBF296311570009E61F /* FilterOptionsModels.swift */,
 			);
 			path = FilterOption;
 			sourceTree = "<group>";
@@ -362,6 +369,7 @@
 			children = (
 				03DDD7A9293B7285009DA8D3 /* GetTransactions.swift */,
 				038ED19029600BEB009629A7 /* GetCategories.swift */,
+				03FD5023296AD808000F7E7D /* UpdateSelectedCategories.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -396,6 +404,7 @@
 			children = (
 				03DDD7B2293B735A009DA8D3 /* GetTransactionsUseCase.swift */,
 				038ED18C296008EC009629A7 /* GetCategoriesUseCase.swift */,
+				03FD5021296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -555,6 +564,8 @@
 				038ED18D296008EC009629A7 /* GetCategoriesUseCase.swift in Sources */,
 				03DDD7B3293B735A009DA8D3 /* GetTransactionsUseCase.swift in Sources */,
 				03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */,
+				0336CFC0296311570009E61F /* FilterOptionsModels.swift in Sources */,
+				03FD5024296AD808000F7E7D /* UpdateSelectedCategories.swift in Sources */,
 				034243F62958226B008B43E0 /* Date.swift in Sources */,
 				038ED19129600BEB009629A7 /* GetCategories.swift in Sources */,
 				03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */,
@@ -568,6 +579,7 @@
 				032864E6295978AD006CC007 /* NetworkMonitor.swift in Sources */,
 				038ED18F29600A4B009629A7 /* Category.swift in Sources */,
 				030D041D29474AD400099739 /* UIColor.swift in Sources */,
+				03FD5022296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift in Sources */,
 				03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */,
 				03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */,
 				0328650D2959CA79006CC007 /* FilterOptionsViewModel.swift in Sources */,
