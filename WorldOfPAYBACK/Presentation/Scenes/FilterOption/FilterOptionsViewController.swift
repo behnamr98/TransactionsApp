@@ -20,6 +20,17 @@ class FilterOptionsViewController: UIViewController {
         return collection
     }()
     
+    private lazy var applyButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 24
+        button.backgroundColor = UIColor(hexCode: "#2196F3")
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
+        button.setTitle("Apply", for: .normal)
+        button.setTitleColor(UIColor(hexCode: "#E9EDF5"), for: .normal)
+        return button
+    }()
+    
     private let viewModel: FilterOptionsViewModel
     private let disposeBag = DisposeBag()
     
@@ -40,7 +51,7 @@ class FilterOptionsViewController: UIViewController {
         binding()
         viewModel.getCategories()
     }
- 
+    
     private func configViewController() {
         title = "Filter Options"
         view.backgroundColor = .white
@@ -48,19 +59,30 @@ class FilterOptionsViewController: UIViewController {
     
     private func addViews() {
         view.addSubview(collectionView)
+        view.addSubview(applyButton)
     }
     
     private func setupConstraints() {
         let safeView = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeView.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeView.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: applyButton.bottomAnchor, constant: -12),
             collectionView.leadingAnchor.constraint(equalTo: safeView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safeView.trailingAnchor),
+            
+            applyButton.heightAnchor.constraint(equalToConstant: 56),
+            applyButton.leadingAnchor.constraint(equalTo: safeView.leadingAnchor, constant: 16),
+            applyButton.trailingAnchor.constraint(equalTo: safeView.trailingAnchor, constant: -16),
+            applyButton.bottomAnchor.constraint(equalTo: safeView.bottomAnchor, constant: -12)
         ])
     }
     
     private func binding() {
+        applyButton.rx
+            .tap
+            .subscribe(onNext: applyButtonTapped)
+            .disposed(by: disposeBag)
+        
         viewModel.categories
             .bind(to: collectionView.rx.items) { collectionView, row, element in
                 let indexPath = IndexPath(row: row, section: 0)
@@ -70,6 +92,10 @@ class FilterOptionsViewController: UIViewController {
             }.disposed(by: disposeBag)
     }
     
+    private func applyButtonTapped() {
+        viewModel.transferCategories()
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - UICollectionView And Delegation

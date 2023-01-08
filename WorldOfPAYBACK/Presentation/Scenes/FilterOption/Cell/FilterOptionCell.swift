@@ -23,7 +23,7 @@ class FilterOptionCell: UICollectionViewCell {
         return label
     }()
     
-    var item: Category? {
+    var item: FilterOptionsModels.CategoryModel? {
         didSet {
             guard let item = self.item else { return }
             titleLabel.text = item.title

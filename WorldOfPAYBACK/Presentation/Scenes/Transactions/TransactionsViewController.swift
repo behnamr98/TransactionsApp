@@ -67,15 +67,18 @@ class TransactionsViewController: UIViewController {
     private var disposeBag = DisposeBag()
     private var viewModel: TransactionsViewModel
     private let makeDetailsTransactionViewController: (Transaction) -> TransactionDetailsViewController
-    private let makeFilterViewController: () -> FilterOptionsViewController
+    private let makeFilterViewController: () -> UINavigationController
+    private let filterOptionsViewModel: () -> FilterOptionsViewModel
     
     init(_ viewModel: TransactionsViewModel,
          _ detailsTransactionViewControllerFactory: @escaping (Transaction) -> TransactionDetailsViewController,
-         _ filterViewControllerFactory: @escaping () -> FilterOptionsViewController
+         _ filterViewControllerFactory: @escaping () -> UINavigationController,
+         _ filterOptionsViewModel: @escaping () -> FilterOptionsViewModel
     ) {
         self.viewModel = viewModel
         self.makeDetailsTransactionViewController = detailsTransactionViewControllerFactory
         self.makeFilterViewController = filterViewControllerFactory
+        self.filterOptionsViewModel = filterOptionsViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -221,10 +224,16 @@ class TransactionsViewController: UIViewController {
     
     @objc private func routeToFilterOption() {
         let vc = makeFilterViewController()
-        navigationController?.pushViewController(vc, animated: true)
-//        viewModel.categories
-//            .subscribe(onNext: { categories in
-//            }).disposed(by: disposeBag)
+        self.present(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
+        
+        filterOptionsViewModel().categoriesTransmitter
+            .subscribe(onNext: filterTransactions)
+            .disposed(by: disposeBag)
+    }
+    
+    private func filterTransactions(_ categories: [Category]) {
+        viewModel.filterTransactions(categories)
     }
     
     private func updateTotalValue(_ total: String) {
