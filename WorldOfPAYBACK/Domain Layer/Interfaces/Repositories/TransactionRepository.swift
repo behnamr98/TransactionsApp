@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol TransactionRepositoryProtocol {
-    func fetchTransactions() async throws
-    func getFilterTransactions() -> [Transaction]
+protocol TransactionRepository {
+    var filteredTransactions: Observable<[Transaction]> { get }
+    func fetchTransactions() async
     func updateSelected(categories: [Category])
     func fetchCategories() -> [Category]
     
