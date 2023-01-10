@@ -11,7 +11,7 @@ import UIKit
 class AppDependencyContainer {
     
     // MARK: - Properties
-    let sharedTransactionsRepository: TransactionRepositoryProtocol
+    let sharedTransactionsRepository: TransactionRepository
     lazy var sharedFilterViewModel: FilterOptionsViewModel = {
         let useCase = GetCategories(repository: self.sharedTransactionsRepository)
         return FilterOptionsViewModelImpl(useCase: useCase)
@@ -19,8 +19,10 @@ class AppDependencyContainer {
     
     // MARK: - Methods
     public init() {
-        func makeTransactionsRepository() -> TransactionRepositoryProtocol {
-            return MockTransactionRepository()
+        func makeTransactionsRepository() -> TransactionRepository {
+            let localDataSource = TransactionJsonDataSource()
+            let remoteDataSource = TransactionURLSessionDataSource(router: Router(session: .shared))
+            return TransactionDataRepository(localDataSource: localDataSource, remoteDataSource: remoteDataSource)
         }
         
         self.sharedTransactionsRepository = makeTransactionsRepository()

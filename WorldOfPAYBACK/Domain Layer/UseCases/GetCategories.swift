@@ -9,7 +9,7 @@ import Foundation
 
 struct GetCategories: GetCategoriesUseCase {
     
-    let repository: TransactionRepositoryProtocol
+    let repository: TransactionRepository
     
     func execute() -> [Category] {
         return repository.fetchCategories()

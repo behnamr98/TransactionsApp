@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import RxSwift
 
 struct GetTransactions: GetTransactionsUseCase {
     
-    let repository: TransactionRepositoryProtocol
+    let repository: TransactionRepository
     
-    func fetch() async throws {
+    var filteredTransactions: Observable<[Transaction]> {
+        repository.filteredTransactions
+    }
+    
+    func fetch() async {
         sleep(2)
-        try await repository.fetchTransactions()
+        await repository.fetchTransactions()
     }
     
-    func getTransactions() ->  [Transaction] {
-        return repository.getFilterTransactions().map { $0 }.sorted(by: >)
-    }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 struct UpdateSelectedCategories: UpdateSelectedCategoriesUseCase {
     
-    let repository: TransactionRepositoryProtocol
+    let repository: TransactionRepository
     
     func execute(_ categories: [Category]) {
         if categories.isEmpty { return }

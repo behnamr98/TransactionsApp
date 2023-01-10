@@ -255,6 +255,7 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         routeToDetails(viewModel.selectedTransaction(indexPath))
     }
     

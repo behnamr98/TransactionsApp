@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GetTransactionsUseCase {
-    func fetch() async throws
-    func getTransactions() ->  [Transaction]
+    var filteredTransactions: Observable<[Transaction]> { get }
+    func fetch() async
 }
