@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		030D041D29474AD400099739 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041C29474AD400099739 /* UIColor.swift */; };
-		030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */; };
+		030D041F29474F0300099739 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030D041E29474F0300099739 /* TransactionRepository.swift */; };
 		032864E029596916006CC007 /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864DF29596916006CC007 /* TransactionDetailsViewController.swift */; };
 		032864E229596928006CC007 /* TransactionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864E129596928006CC007 /* TransactionDetailsViewModel.swift */; };
 		032864E6295978AD006CC007 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032864E5295978AD006CC007 /* NetworkMonitor.swift */; };
@@ -40,11 +40,17 @@
 		03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A3293B6153009DA8D3 /* UICollectionView+EX.swift */; };
 		03DDD7A7293B660E009DA8D3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A6293B660E009DA8D3 /* Transaction.swift */; };
 		03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A9293B7285009DA8D3 /* GetTransactions.swift */; };
-		03DDD7AE293B72EE009DA8D3 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7AD293B72EE009DA8D3 /* TransactionRepository.swift */; };
+		03DDD7AE293B72EE009DA8D3 /* TransactionDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7AD293B72EE009DA8D3 /* TransactionDataRepository.swift */; };
 		03DDD7B3293B735A009DA8D3 /* GetTransactionsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7B2293B735A009DA8D3 /* GetTransactionsUseCase.swift */; };
 		03DDD7B6293B7786009DA8D3 /* TransactionDTOResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7B5293B7786009DA8D3 /* TransactionDTOResponse.swift */; };
 		03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7B7293B7798009DA8D3 /* TransactionDTORequest.swift */; };
 		03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7BA293B7F28009DA8D3 /* ReusableView.swift */; };
+		03EA7DA8296BF87F005AB257 /* TransactionLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DA7296BF87F005AB257 /* TransactionLocalDataSource.swift */; };
+		03EA7DAA296C0D3A005AB257 /* TransactionRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DA9296C0D3A005AB257 /* TransactionRemoteDataSource.swift */; };
+		03EA7DAC296C3765005AB257 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DAB296C3765005AB257 /* HTTPMethod.swift */; };
+		03EA7DAE296C379F005AB257 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DAD296C379F005AB257 /* EndPointType.swift */; };
+		03EA7DB1296C4F69005AB257 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DB0296C4F69005AB257 /* Router.swift */; };
+		03EA7DB3296D36D1005AB257 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA7DB2296D36D1005AB257 /* Endpoints.swift */; };
 		03FD5022296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD5021296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift */; };
 		03FD5024296AD808000F7E7D /* UpdateSelectedCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FD5023296AD808000F7E7D /* UpdateSelectedCategories.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +74,7 @@
 
 /* Begin PBXFileReference section */
 		030D041C29474AD400099739 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryProtocol.swift; sourceTree = "<group>"; };
+		030D041E29474F0300099739 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		032864DF29596916006CC007 /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
 		032864E129596928006CC007 /* TransactionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewModel.swift; sourceTree = "<group>"; };
 		032864E5295978AD006CC007 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -102,11 +108,17 @@
 		03DDD7A3293B6153009DA8D3 /* UICollectionView+EX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+EX.swift"; sourceTree = "<group>"; };
 		03DDD7A6293B660E009DA8D3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		03DDD7A9293B7285009DA8D3 /* GetTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactions.swift; sourceTree = "<group>"; };
-		03DDD7AD293B72EE009DA8D3 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		03DDD7AD293B72EE009DA8D3 /* TransactionDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataRepository.swift; sourceTree = "<group>"; };
 		03DDD7B2293B735A009DA8D3 /* GetTransactionsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionsUseCase.swift; sourceTree = "<group>"; };
 		03DDD7B5293B7786009DA8D3 /* TransactionDTOResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTOResponse.swift; sourceTree = "<group>"; };
 		03DDD7B7293B7798009DA8D3 /* TransactionDTORequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDTORequest.swift; sourceTree = "<group>"; };
 		03DDD7BA293B7F28009DA8D3 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		03EA7DA7296BF87F005AB257 /* TransactionLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLocalDataSource.swift; sourceTree = "<group>"; };
+		03EA7DA9296C0D3A005AB257 /* TransactionRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRemoteDataSource.swift; sourceTree = "<group>"; };
+		03EA7DAB296C3765005AB257 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		03EA7DAD296C379F005AB257 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		03EA7DB0296C4F69005AB257 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		03EA7DB2296D36D1005AB257 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		03FD5021296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSelectedCategoriesUseCase.swift; sourceTree = "<group>"; };
 		03FD5023296AD808000F7E7D /* UpdateSelectedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSelectedCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +259,7 @@
 		03A05D182934E8B5007ED1FA /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
+				03EA7DA6296BF86B005AB257 /* DataSources */,
 				03DDD7AB293B72BA009DA8D3 /* Repositories */,
 			);
 			path = "Data Layer";
@@ -303,8 +316,12 @@
 		03A05D202934F0EF007ED1FA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				03DDD7B4293B776F009DA8D3 /* DataMapping */,
 				032864E5295978AD006CC007 /* NetworkMonitor.swift */,
+				03EA7DAB296C3765005AB257 /* HTTPMethod.swift */,
+				03EA7DAD296C379F005AB257 /* EndPointType.swift */,
+				03EA7DB0296C4F69005AB257 /* Router.swift */,
+				03DDD7B4293B776F009DA8D3 /* DataMapping */,
+				03EA7DB2296D36D1005AB257 /* Endpoints.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -377,7 +394,7 @@
 		03DDD7AB293B72BA009DA8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				03DDD7AD293B72EE009DA8D3 /* TransactionRepository.swift */,
+				03DDD7AD293B72EE009DA8D3 /* TransactionDataRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -394,7 +411,7 @@
 		03DDD7B0293B731A009DA8D3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				030D041E29474F0300099739 /* TransactionRepositoryProtocol.swift */,
+				030D041E29474F0300099739 /* TransactionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -416,6 +433,15 @@
 				03DDD7B5293B7786009DA8D3 /* TransactionDTOResponse.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		03EA7DA6296BF86B005AB257 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				03EA7DA7296BF87F005AB257 /* TransactionLocalDataSource.swift */,
+				03EA7DA9296C0D3A005AB257 /* TransactionRemoteDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,24 +587,30 @@
 				03DDD7B6293B7786009DA8D3 /* TransactionDTOResponse.swift in Sources */,
 				03C7E714293DC00C00E93E1C /* TransactionCell.swift in Sources */,
 				034243F229581BF9008B43E0 /* DateFormmater.swift in Sources */,
+				03EA7DB1296C4F69005AB257 /* Router.swift in Sources */,
 				038ED18D296008EC009629A7 /* GetCategoriesUseCase.swift in Sources */,
 				03DDD7B3293B735A009DA8D3 /* GetTransactionsUseCase.swift in Sources */,
+				03EA7DA8296BF87F005AB257 /* TransactionLocalDataSource.swift in Sources */,
 				03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */,
 				0336CFC0296311570009E61F /* FilterOptionsModels.swift in Sources */,
 				03FD5024296AD808000F7E7D /* UpdateSelectedCategories.swift in Sources */,
 				034243F62958226B008B43E0 /* Date.swift in Sources */,
 				038ED19129600BEB009629A7 /* GetCategories.swift in Sources */,
+				03EA7DAC296C3765005AB257 /* HTTPMethod.swift in Sources */,
+				03EA7DAE296C379F005AB257 /* EndPointType.swift in Sources */,
 				03DDD7BB293B7F28009DA8D3 /* ReusableView.swift in Sources */,
 				032864E229596928006CC007 /* TransactionDetailsViewModel.swift in Sources */,
 				03DDD7B8293B7798009DA8D3 /* TransactionDTORequest.swift in Sources */,
 				03A05D1E2934EDE0007ED1FA /* TransactionsViewModel.swift in Sources */,
-				030D041F29474F0300099739 /* TransactionRepositoryProtocol.swift in Sources */,
-				03DDD7AE293B72EE009DA8D3 /* TransactionRepository.swift in Sources */,
+				030D041F29474F0300099739 /* TransactionRepository.swift in Sources */,
+				03DDD7AE293B72EE009DA8D3 /* TransactionDataRepository.swift in Sources */,
 				038ED19729606C3C009629A7 /* AppDependecyContainer.swift in Sources */,
 				032864E829598837006CC007 /* ErrorView.swift in Sources */,
 				032864E6295978AD006CC007 /* NetworkMonitor.swift in Sources */,
+				03EA7DAA296C0D3A005AB257 /* TransactionRemoteDataSource.swift in Sources */,
 				038ED18F29600A4B009629A7 /* Category.swift in Sources */,
 				030D041D29474AD400099739 /* UIColor.swift in Sources */,
+				03EA7DB3296D36D1005AB257 /* Endpoints.swift in Sources */,
 				03FD5022296AD7DF000F7E7D /* UpdateSelectedCategoriesUseCase.swift in Sources */,
 				03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */,
 				03A05CE12934E4A6007ED1FA /* AppDelegate.swift in Sources */,
