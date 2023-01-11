@@ -12,6 +12,17 @@ protocol NetworkRouter {
     func request<T: Decodable>(endPoint: EndPointType) -> Observable<T>
 }
 
+protocol NetworkSession {
+    func data(request: URLRequest) -> Observable<Data>
+}
+
+
+extension Reactive<URLSession>: NetworkSession {
+//    func data(request: URLRequest) -> Observable<Data> {
+//        return data(request: request)
+//    }
+}
+
 struct Router: NetworkRouter {
     
     let session: URLSession
@@ -23,7 +34,7 @@ struct Router: NetworkRouter {
             }
     }
     
-    fileprivate func buildRequest(endpoint: EndPointType) -> URLRequest {
+    func buildRequest(endpoint: EndPointType) -> URLRequest {
         var request = URLRequest(url: endpoint.baseURL.appendingPathComponent(endpoint.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10)

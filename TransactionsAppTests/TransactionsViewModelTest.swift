@@ -1,5 +1,5 @@
 //
-//  TransactionsAppTests.swift
+//  TransactionsViewModelTest.swift
 //  TransactionsAppTests
 //
 //  Created by Behnam on 11/28/22.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import TransactionsApp
 
-final class TransactionsAppTests: XCTestCase {
+final class TransactionsViewModelTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

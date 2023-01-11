@@ -7,8 +7,4 @@
 
 import Foundation
 
-struct TransactionDTORequest {
-    
-    
-    
-}
+struct TransactionDTORequest {}
