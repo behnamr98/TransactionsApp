@@ -36,8 +36,8 @@ class TransactionsViewModelImpl: TransactionsViewModel {
     
     private var cachedTransactions: [Transaction] = []
     private var forcedErrorSubject = PublishRelay<Void>()
-    private var sumOfTransactionsSubject = PublishSubject<String>()
-    private var isLoadingSubject = PublishSubject<Bool>()
+    var sumOfTransactionsSubject = PublishSubject<String>()
+    var isLoadingSubject = PublishSubject<Bool>()
     private var disposeBag = DisposeBag()
     
     private let transactionsUseCase: GetTransactionsUseCase
