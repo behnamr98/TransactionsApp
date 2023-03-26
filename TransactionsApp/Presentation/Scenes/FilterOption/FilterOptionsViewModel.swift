@@ -26,8 +26,8 @@ class FilterOptionsViewModelImpl: FilterOptionsViewModel {
     var categories: Observable<[FilterOptionsModels.CategoryModel]> { categoriesSubject.asObservable() }
     var categoriesTransmitter: Observable<[Category]> { categoriesTransmitterSubject.asObservable() }
     
-    private var categoriesSubject = BehaviorRelay<[FilterOptionsModels.CategoryModel]>(value: [])
-    private var categoriesTransmitterSubject = BehaviorRelay<[Category]>(value: [])
+    var categoriesSubject = BehaviorRelay<[FilterOptionsModels.CategoryModel]>(value: [])
+    var categoriesTransmitterSubject = BehaviorRelay<[Category]>(value: [])
     private let useCase: GetCategoriesUseCase
     init(useCase: GetCategoriesUseCase) {
         self.useCase = useCase
