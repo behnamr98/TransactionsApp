@@ -28,15 +28,19 @@
 		03A05CE52934E4A6007ED1FA /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CE42934E4A6007ED1FA /* TransactionsViewController.swift */; };
 		03A05CEA2934E4A8007ED1FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A05CE92934E4A8007ED1FA /* Assets.xcassets */; };
 		03A05CED2934E4A8007ED1FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A05CEB2934E4A8007ED1FA /* LaunchScreen.storyboard */; };
-		03A05CF82934E4A8007ED1FA /* TransactionsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05CF72934E4A8007ED1FA /* TransactionsViewModelTest.swift */; };
-		03A05D152934E883007ED1FA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 03A05D142934E883007ED1FA /* RxCocoa */; };
-		03A05D172934E883007ED1FA /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 03A05D162934E883007ED1FA /* RxSwift */; };
 		03A05D1E2934EDE0007ED1FA /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A05D1D2934EDE0007ED1FA /* TransactionsViewModel.swift */; };
+		03AF0EDA29D07DD100EB6375 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 03AF0ED929D07DD100EB6375 /* RxCocoa */; };
+		03AF0EDC29D07DD100EB6375 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 03AF0EDB29D07DD100EB6375 /* RxSwift */; };
+		03AF0EDE29D07DD100EB6375 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 03AF0EDD29D07DD100EB6375 /* RxTest */; };
 		03C1671D296ED2BF0094AB8B /* NetworkRouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1671C296ED2BF0094AB8B /* NetworkRouterTest.swift */; };
-		03C16720296ED9D20094AB8B /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 03C1671F296ED9D20094AB8B /* RxCocoa */; };
-		03C16722296ED9D20094AB8B /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 03C16721296ED9D20094AB8B /* RxSwift */; };
 		03C7E711293DBA8A00E93E1C /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 03C7E710293DBA8A00E93E1C /* PBTransactions.json */; };
 		03C7E714293DC00C00E93E1C /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7E713293DC00C00E93E1C /* TransactionCell.swift */; };
+		03D37ADF29D032B900D9C9A7 /* FilterOptionsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D37ADE29D032B900D9C9A7 /* FilterOptionsViewModelTest.swift */; };
+		03D5606529D05B4200F4BA4A /* FilterOptionsModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5606429D05B4200F4BA4A /* FilterOptionsModelTest.swift */; };
+		03D5606829D05C6600F4BA4A /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5606729D05C6600F4BA4A /* CommonTests.swift */; };
+		03D5606B29D0636200F4BA4A /* TransactionsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D5606A29D0636200F4BA4A /* TransactionsViewModelTest.swift */; };
+		03D5607029D07B2D00F4BA4A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 03D5606F29D07B2D00F4BA4A /* RxCocoa */; };
+		03D5607229D07B2D00F4BA4A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 03D5607129D07B2D00F4BA4A /* RxSwift */; };
 		03DDD7A4293B6153009DA8D3 /* UICollectionView+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A3293B6153009DA8D3 /* UICollectionView+EX.swift */; };
 		03DDD7A7293B660E009DA8D3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A6293B660E009DA8D3 /* Transaction.swift */; };
 		03DDD7AA293B7285009DA8D3 /* GetTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DDD7A9293B7285009DA8D3 /* GetTransactions.swift */; };
@@ -57,13 +61,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		03A05CF42934E4A8007ED1FA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03A05CD52934E4A6007ED1FA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 03A05CDC2934E4A6007ED1FA;
-			remoteInfo = WorldOfPAYBACK;
-		};
-		03A05CFE2934E4A8007ED1FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03A05CD52934E4A6007ED1FA /* Project object */;
 			proxyType = 1;
@@ -97,12 +94,14 @@
 		03A05CEC2934E4A8007ED1FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03A05CEE2934E4A8007ED1FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A05CF32934E4A8007ED1FA /* TransactionsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		03A05CF72934E4A8007ED1FA /* TransactionsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModelTest.swift; sourceTree = "<group>"; };
-		03A05CFD2934E4A8007ED1FA /* TransactionsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A05D1D2934EDE0007ED1FA /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		03C1671C296ED2BF0094AB8B /* NetworkRouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterTest.swift; sourceTree = "<group>"; };
 		03C7E710293DBA8A00E93E1C /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
 		03C7E713293DC00C00E93E1C /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		03D37ADE29D032B900D9C9A7 /* FilterOptionsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewModelTest.swift; sourceTree = "<group>"; };
+		03D5606429D05B4200F4BA4A /* FilterOptionsModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsModelTest.swift; sourceTree = "<group>"; };
+		03D5606729D05C6600F4BA4A /* CommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTests.swift; sourceTree = "<group>"; };
+		03D5606A29D0636200F4BA4A /* TransactionsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModelTest.swift; sourceTree = "<group>"; };
 		03DDD7A3293B6153009DA8D3 /* UICollectionView+EX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+EX.swift"; sourceTree = "<group>"; };
 		03DDD7A6293B660E009DA8D3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		03DDD7A9293B7285009DA8D3 /* GetTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactions.swift; sourceTree = "<group>"; };
@@ -126,8 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A05D172934E883007ED1FA /* RxSwift in Frameworks */,
-				03A05D152934E883007ED1FA /* RxCocoa in Frameworks */,
+				03D5607229D07B2D00F4BA4A /* RxSwift in Frameworks */,
+				03D5607029D07B2D00F4BA4A /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,15 +134,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C16722296ED9D20094AB8B /* RxSwift in Frameworks */,
-				03C16720296ED9D20094AB8B /* RxCocoa in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		03A05CFA2934E4A8007ED1FA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				03AF0EDC29D07DD100EB6375 /* RxSwift in Frameworks */,
+				03AF0EDE29D07DD100EB6375 /* RxTest in Frameworks */,
+				03AF0EDA29D07DD100EB6375 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +172,6 @@
 			children = (
 				03A05CDF2934E4A6007ED1FA /* TransactionsApp */,
 				03A05CF62934E4A8007ED1FA /* TransactionsAppTests */,
-				03A05D002934E4A8007ED1FA /* TransactionsAppUITests */,
 				03A05CDE2934E4A6007ED1FA /* Products */,
 				03C1671E296ED9D20094AB8B /* Frameworks */,
 			);
@@ -190,7 +182,6 @@
 			children = (
 				03A05CDD2934E4A6007ED1FA /* TransactionsApp.app */,
 				03A05CF32934E4A8007ED1FA /* TransactionsAppTests.xctest */,
-				03A05CFD2934E4A8007ED1FA /* TransactionsAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,17 +203,12 @@
 		03A05CF62934E4A8007ED1FA /* TransactionsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				03A05CF72934E4A8007ED1FA /* TransactionsViewModelTest.swift */,
+				03D5606929D0635300F4BA4A /* Transactions */,
+				03D5606329D05B3600F4BA4A /* Filter Option */,
+				03D5606629D05C5A00F4BA4A /* Common */,
 				03C1671C296ED2BF0094AB8B /* NetworkRouterTest.swift */,
 			);
 			path = TransactionsAppTests;
-			sourceTree = "<group>";
-		};
-		03A05D002934E4A8007ED1FA /* TransactionsAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TransactionsAppUITests;
 			sourceTree = "<group>";
 		};
 		03A05D102934E678007ED1FA /* Resources */ = {
@@ -349,6 +335,31 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		03D5606329D05B3600F4BA4A /* Filter Option */ = {
+			isa = PBXGroup;
+			children = (
+				03D5606429D05B4200F4BA4A /* FilterOptionsModelTest.swift */,
+				03D37ADE29D032B900D9C9A7 /* FilterOptionsViewModelTest.swift */,
+			);
+			path = "Filter Option";
+			sourceTree = "<group>";
+		};
+		03D5606629D05C5A00F4BA4A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				03D5606729D05C6600F4BA4A /* CommonTests.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		03D5606929D0635300F4BA4A /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				03D5606A29D0636200F4BA4A /* TransactionsViewModelTest.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
 		03DDD7A0293B60EF009DA8D3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,8 +478,8 @@
 			);
 			name = TransactionsApp;
 			packageProductDependencies = (
-				03A05D142934E883007ED1FA /* RxCocoa */,
-				03A05D162934E883007ED1FA /* RxSwift */,
+				03D5606F29D07B2D00F4BA4A /* RxCocoa */,
+				03D5607129D07B2D00F4BA4A /* RxSwift */,
 			);
 			productName = WorldOfPAYBACK;
 			productReference = 03A05CDD2934E4A6007ED1FA /* TransactionsApp.app */;
@@ -489,30 +500,13 @@
 			);
 			name = TransactionsAppTests;
 			packageProductDependencies = (
-				03C1671F296ED9D20094AB8B /* RxCocoa */,
-				03C16721296ED9D20094AB8B /* RxSwift */,
+				03AF0ED929D07DD100EB6375 /* RxCocoa */,
+				03AF0EDB29D07DD100EB6375 /* RxSwift */,
+				03AF0EDD29D07DD100EB6375 /* RxTest */,
 			);
 			productName = WorldOfPAYBACKTests;
 			productReference = 03A05CF32934E4A8007ED1FA /* TransactionsAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		03A05CFC2934E4A8007ED1FA /* TransactionsAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 03A05D0D2934E4A8007ED1FA /* Build configuration list for PBXNativeTarget "TransactionsAppUITests" */;
-			buildPhases = (
-				03A05CF92934E4A8007ED1FA /* Sources */,
-				03A05CFA2934E4A8007ED1FA /* Frameworks */,
-				03A05CFB2934E4A8007ED1FA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				03A05CFF2934E4A8007ED1FA /* PBXTargetDependency */,
-			);
-			name = TransactionsAppUITests;
-			productName = WorldOfPAYBACKUITests;
-			productReference = 03A05CFD2934E4A8007ED1FA /* TransactionsAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -531,10 +525,6 @@
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 03A05CDC2934E4A6007ED1FA;
 					};
-					03A05CFC2934E4A8007ED1FA = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = 03A05CDC2934E4A6007ED1FA;
-					};
 				};
 			};
 			buildConfigurationList = 03A05CD82934E4A6007ED1FA /* Build configuration list for PBXProject "TransactionsApp" */;
@@ -547,7 +537,7 @@
 			);
 			mainGroup = 03A05CD42934E4A6007ED1FA;
 			packageReferences = (
-				03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */,
+				03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 03A05CDE2934E4A6007ED1FA /* Products */;
 			projectDirPath = "";
@@ -555,7 +545,6 @@
 			targets = (
 				03A05CDC2934E4A6007ED1FA /* TransactionsApp */,
 				03A05CF22934E4A8007ED1FA /* TransactionsAppTests */,
-				03A05CFC2934E4A8007ED1FA /* TransactionsAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -572,13 +561,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		03A05CF12934E4A8007ED1FA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		03A05CFB2934E4A8007ED1FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -636,15 +618,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D37ADF29D032B900D9C9A7 /* FilterOptionsViewModelTest.swift in Sources */,
+				03D5606B29D0636200F4BA4A /* TransactionsViewModelTest.swift in Sources */,
+				03D5606829D05C6600F4BA4A /* CommonTests.swift in Sources */,
+				03D5606529D05B4200F4BA4A /* FilterOptionsModelTest.swift in Sources */,
 				03C1671D296ED2BF0094AB8B /* NetworkRouterTest.swift in Sources */,
-				03A05CF82934E4A8007ED1FA /* TransactionsViewModelTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		03A05CF92934E4A8007ED1FA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,11 +633,6 @@
 			isa = PBXTargetDependency;
 			target = 03A05CDC2934E4A6007ED1FA /* TransactionsApp */;
 			targetProxy = 03A05CF42934E4A8007ED1FA /* PBXContainerItemProxy */;
-		};
-		03A05CFF2934E4A8007ED1FA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 03A05CDC2934E4A6007ED1FA /* TransactionsApp */;
-			targetProxy = 03A05CFE2934E4A8007ED1FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -855,6 +828,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.behnamr98.TransactionsAppTests;
@@ -874,6 +848,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionsApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.behnamr98.TransactionsAppTests;
@@ -882,40 +857,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransactionsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TransactionsApp";
-			};
-			name = Release;
-		};
-		03A05D0E2934E4A8007ED1FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.behnamr98.TransactionsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TransactionsApp;
-			};
-			name = Debug;
-		};
-		03A05D0F2934E4A8007ED1FA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ios.behnamr98.TransactionsAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TransactionsApp;
 			};
 			name = Release;
 		};
@@ -949,19 +890,10 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03A05D0D2934E4A8007ED1FA /* Build configuration list for PBXNativeTarget "TransactionsAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				03A05D0E2934E4A8007ED1FA /* Debug */,
-				03A05D0F2934E4A8007ED1FA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -972,24 +904,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		03A05D142934E883007ED1FA /* RxCocoa */ = {
+		03AF0ED929D07DD100EB6375 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		03A05D162934E883007ED1FA /* RxSwift */ = {
+		03AF0EDB29D07DD100EB6375 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		03C1671F296ED9D20094AB8B /* RxCocoa */ = {
+		03AF0EDD29D07DD100EB6375 /* RxTest */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		03D5606F29D07B2D00F4BA4A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		03C16721296ED9D20094AB8B /* RxSwift */ = {
+		03D5607129D07B2D00F4BA4A /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 03A05D132934E883007ED1FA /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 03D5606C29D07B2D00F4BA4A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
