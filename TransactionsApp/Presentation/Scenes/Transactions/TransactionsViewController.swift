@@ -171,27 +171,22 @@ class TransactionsViewController: UIViewController {
 //            }
         
         viewModel.isLoading
-            .asDriver(onErrorJustReturn: false)
             .drive(indicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
         viewModel.isLoading
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { status in
+            .drive(onNext: { status in
                 if !self.errorView.isHidden {
                     self.errorView.isHidden = true
                 }
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
         viewModel.forcedError
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: showServerError)
+            .drive(onNext: showServerError)
             .disposed(by: disposeBag)
         
-        viewModel.sumOfTransaction
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: updateTotalValue)
+        viewModel.sumOfTransactions
+            .drive(onNext: updateTotalValue)
             .disposed(by: disposeBag)
         
         viewModel.transactions
@@ -225,7 +220,6 @@ class TransactionsViewController: UIViewController {
     @objc private func routeToFilterOption() {
         let vc = makeFilterViewController()
         self.present(vc, animated: true)
-//        navigationController?.pushViewController(vc, animated: true)
         
         filterOptionsViewModel().categoriesTransmitter
             .subscribe(onNext: filterTransactions)
@@ -255,7 +249,6 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         routeToDetails(viewModel.selectedTransaction(indexPath))
     }
     

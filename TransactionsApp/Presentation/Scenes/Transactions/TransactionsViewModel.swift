@@ -15,10 +15,10 @@ protocol TransactionsViewModelInput {
 }
 protocol TransactionsViewModelOutput {
     var transactions: Observable<[Transaction]> { get }
-    var forcedError: Observable<Void> { get }
-    var sumOfTransaction: Observable<String> { get }
-    var isLoading: Observable<Bool> { get }
-    var networkAvailable: Observable<Bool> { get }
+    var forcedError: Driver<Void> { get }
+    var sumOfTransactions: Driver<String> { get }
+    var isLoading: Driver<Bool> { get }
+    var networkAvailable: Driver<Bool> { get }
     func selectedTransaction(_ indexPath: IndexPath) -> Transaction
 }
 
@@ -26,18 +26,19 @@ protocol TransactionsViewModel: TransactionsViewModelInput, TransactionsViewMode
 
 class TransactionsViewModelImpl: TransactionsViewModel {
     
-    var transactions: Observable<[Transaction]> { transactionsUseCase.filteredTransactions }
-    var forcedError: Observable<Void> { forcedErrorSubject.asObservable() }
-    var sumOfTransaction: Observable<String> { sumOfTransactionsSubject.asObservable() }
-    var isLoading: Observable<Bool> { isLoadingSubject.asObservable() }
-    var networkAvailable: Observable<Bool> {
-        NetworkMonitor.shared.connectionStatus.asObservable()
+    var networkAvailable: Driver<Bool> {
+        NetworkMonitor.shared.connectionStatus.asDriver()
     }
+    var transactions: Observable<[Transaction]> {
+        transactionsUseCase.filteredTransactions
+    }
+    var forcedError: Driver<Void>
+    var sumOfTransactions: Driver<String>
+    var isLoading: Driver<Bool>
     
     private var cachedTransactions: [Transaction] = []
     private var forcedErrorSubject = PublishRelay<Void>()
-    var sumOfTransactionsSubject = PublishSubject<String>()
-    var isLoadingSubject = PublishSubject<Bool>()
+    private var isLoadingSubject = PublishSubject<Bool>()
     private var disposeBag = DisposeBag()
     
     private let transactionsUseCase: GetTransactionsUseCase
@@ -48,6 +49,9 @@ class TransactionsViewModelImpl: TransactionsViewModel {
     ) {
         self.transactionsUseCase = transactionsUseCase
         self.updateCategories = updateCategories
+        self.sumOfTransactions = Observable.just("").asDriver(onErrorJustReturn: "")
+        self.isLoading = isLoadingSubject.asDriver(onErrorJustReturn: false)
+        self.forcedError = forcedErrorSubject.asDriver(onErrorJustReturn: ())
         
         self.transactionsUseCase.filteredTransactions
             .subscribe { transactions in
@@ -72,9 +76,12 @@ class TransactionsViewModelImpl: TransactionsViewModel {
     func publishSumValue(_ transactions: [Transaction]) {
         self.cachedTransactions = transactions
         isLoadingSubject.onNext(false)
-        let sum = transactions.map { $0.transactionDetail.amount }.reduce(0, +)
-        let currency = transactions.first?.transactionDetail.currency ?? ""
-        sumOfTransactionsSubject.onNext("\(sum) \(currency)")
+        let sum = Observable.just(transactions.map { $0.transactionDetail.amount }.reduce(0, +).stringValue)
+        let currency = Observable.just(transactions.first?.transactionDetail.currency ?? "")
+        
+        sumOfTransactions = Observable.zip(sum, currency)
+            .map { $0 + " " + $1 }
+            .asDriver(onErrorJustReturn: "")
     }
     
     func selectedTransaction(_ indexPath: IndexPath) -> Transaction {
