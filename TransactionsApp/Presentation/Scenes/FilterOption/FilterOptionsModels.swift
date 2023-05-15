@@ -9,7 +9,7 @@ import Foundation
 
 struct FilterOptionsModels {
     
-    struct CategoryModel {
+    struct CategoryModel: Equatable {
         
         init(category: Category) {
             self.id = category.id

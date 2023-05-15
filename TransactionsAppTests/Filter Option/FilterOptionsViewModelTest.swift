@@ -7,9 +7,12 @@
 
 import RxSwift
 import XCTest
+import RxBlocking
 @testable import TransactionsApp
 
 final class FilterOptionsViewModelTest: XCTestCase {
+    
+    typealias CategoryModel = TransactionsApp.Category
     
     var viewModel: FilterOptionsViewModelImpl!
     var useCase: MockGetCategoriesUseCase!
@@ -29,65 +32,65 @@ final class FilterOptionsViewModelTest: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_getCategories_checkValuesBeSame() {
-        // Given
-        useCase.categories = [.init(id: 1), .init(id: 2)]
-        // When
+    func test_getCategories_checkValuesBeSame() throws {
+        let categoriesExpectations: [CategoryModel] = [.init(id: 1), .init(id: 2)]
+        useCase.categories = categoriesExpectations
         viewModel.getCategories()
-        // Then
-        viewModel.categories
-            .take(1)
-            .subscribe(onNext: { categories in
-                XCTAssertEqual(categories.count, 2)
-                XCTAssertEqual(categories[0].id, 1)
-                XCTAssertEqual(categories[0].title, "Category 1")
-                XCTAssertEqual(categories[1].id, 2)
-                XCTAssertEqual(categories[1].title, "Category 2")
-            })
-            .disposed(by: disposeBag)
+        
+        let categories = try XCTUnwrap(viewModel.categories.toBlocking().first())
+        let mappedCategories = categoriesExpectations.map(
+            FilterOptionsModels.CategoryModel.init(category: ))
+        
+        XCTAssertEqual(categories, mappedCategories)
     }
     
-    func test_selectCategory_isSelectedMustHaveChanged() {
+    func test_selectCategory_isSelectedMustHaveChanged() throws {
         // Given
-        viewModel.categoriesSubject.accept([
-            .init(category: .init(id: 1, isSelected: true)),
-            .init(category: .init(id: 2, isSelected: false)),
-            .init(category: .init(id: 3, isSelected: false))
-        ])
+        let categoriesExpectations: [CategoryModel] = [.init(id: 1), .init(id: 2), .init(id: 3)]
+        useCase.categories = categoriesExpectations
+        viewModel.getCategories()
         // When
+        // Deselect first and third items
+        viewModel.selectCategory(.init(row: 0, section: 0))
+        viewModel.selectCategory(.init(row: 2, section: 0))
+        
+        // Then
+        let categories = try XCTUnwrap(viewModel.categories.toBlocking().first())
+        XCTAssertEqual(categories[0].selected, false)
+        XCTAssertEqual(categories[1].selected, true)
+        XCTAssertEqual(categories[2].selected, false)
+    }
+    
+    func test_deselectAll_theLastOneShouldNotDeselect() throws {
+        // Given
+        let categoriesExpectations: [CategoryModel] = [.init(id: 1), .init(id: 2), .init(id: 3)]
+        useCase.categories = categoriesExpectations
+        viewModel.getCategories()
+        // When
+        // Deselect first and third items
+        viewModel.selectCategory(.init(row: 0, section: 0))
         viewModel.selectCategory(.init(row: 1, section: 0))
+        viewModel.selectCategory(.init(row: 2, section: 0))
+        
         // Then
-        viewModel.categories
-            .take(1)
-            .subscribe(onNext: { categories in
-                XCTAssertEqual(categories[0].selected, true)
-                XCTAssertEqual(categories[1].selected, true)
-                XCTAssertEqual(categories[2].selected, false)
-            })
-            .disposed(by: disposeBag)
+        let categories = try XCTUnwrap(viewModel.categories.toBlocking().first())
+        XCTAssertEqual(categories[0].selected, false)
+        XCTAssertEqual(categories[1].selected, false)
+        XCTAssertEqual(categories[2].selected, true)
     }
     
-    func testTransferCategories() {
+    func test_transferCategories_shouldEqualBySelectedOnes() throws {
         // Given
-        viewModel.categoriesSubject.accept([
-            .init(category: .init(id: 1, isSelected: true)),
-            .init(category: .init(id: 2, isSelected: false))
-        ])
-        
+        let categoriesExpectations: [CategoryModel] = [.init(id: 1), .init(id: 2), .init(id: 3)]
+        useCase.categories = categoriesExpectations
+        viewModel.getCategories()
         // When
+        // Deselect first and third items
+        viewModel.selectCategory(.init(row: 0, section: 0))
         viewModel.transferCategories()
-        
         // Then
-        viewModel.categoriesTransmitter
-            .take(1)
-            .subscribe(onNext: { categories in
-                XCTAssertEqual(categories.count, 2)
-                XCTAssertEqual(categories[0].id, 1)
-                XCTAssertEqual(categories[0].title, "Category 1")
-                XCTAssertEqual(categories[1].id, 2)
-                XCTAssertEqual(categories[1].title, "Category 2")
-            })
-            .disposed(by: disposeBag)
+        let categories = try XCTUnwrap(viewModel.categoriesTransmitter.toBlocking().first())
+        XCTAssertEqual(categories, categoriesExpectations)
     }
     
 }
